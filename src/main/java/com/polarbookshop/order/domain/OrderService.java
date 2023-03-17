@@ -28,7 +28,7 @@ public class OrderService {
         return Order.of(book, quantity, OrderStatus.ACCEPTED);
     }
 
-    private static Order buildRejectedOrder(String isbn, int quantity) {
+    public static Order buildRejectedOrder(String isbn, int quantity) {
         return Order.of(isbn, null, 0, quantity, OrderStatus.REJECTED);
     }
 
