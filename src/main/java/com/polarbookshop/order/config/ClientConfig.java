@@ -8,14 +8,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class ClientConfig {
     @Bean
-    WebClient webClient(ClientProperties properties, WebClient.Builder builder) {
+    WebClient webClient(BookCatalogClientProperties properties, WebClient.Builder builder) {
         return builder
                 .baseUrl(properties.catalogServiceUri().toString())
                 .build();
     }
 
     @Bean
-    BookCatalog bookClient(WebClient webClient) {
-        return new BookCatalog(webClient);
+    BookCatalog bookClient(WebClient webClient, BookCatalogClientProperties clientProperties) {
+        return new BookCatalog(webClient, clientProperties);
     }
 }

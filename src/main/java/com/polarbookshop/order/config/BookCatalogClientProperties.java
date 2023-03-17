@@ -6,8 +6,11 @@ import javax.validation.constraints.NotNull;
 import java.net.URI;
 
 @ConfigurationProperties(prefix = "order.polar")
-public record ClientProperties(
+public record BookCatalogClientProperties(
         @NotNull
-        URI catalogServiceUri
+        URI catalogServiceUri,
+        int timeout,
+        int maxAttempts,
+        int retryBackoff
 ) {
 }
