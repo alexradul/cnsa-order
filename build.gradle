@@ -30,6 +30,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'org.postgresql:r2dbc-postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     runtimeOnly("org.flywaydb:flyway-core")
     runtimeOnly("org.springframework:spring-jdbc")
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -47,4 +48,8 @@ dependencyManagement {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('compileJava') {
+    inputs.files(tasks.named('processResources'))
 }
