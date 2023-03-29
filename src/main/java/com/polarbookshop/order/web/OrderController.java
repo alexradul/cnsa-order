@@ -3,12 +3,14 @@ package com.polarbookshop.order.web;
 import com.polarbookshop.order.domain.Order;
 import com.polarbookshop.order.domain.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 
+@Transactional
 @RestController
 @RequestMapping("orders")
 @RequiredArgsConstructor
