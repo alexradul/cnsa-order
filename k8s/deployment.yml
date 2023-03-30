@@ -28,7 +28,8 @@ spec:
               value: jdbc:postgresql://polar-postgres:5432/polardb_order
             - name: ORDER_POLAR_CATALOG-SERVICE-URI
               value: http://catalog-service
-
+            - name: SPRING_RABBITMQ_HOST
+              value: polar-rabbitmq
           lifecycle:
             preStop:
               exec:
