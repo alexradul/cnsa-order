@@ -19,8 +19,8 @@ public class OrderService {
     private final BookCatalog catalog;
     private final StreamBridge streamBridge;
 
-    public Flux<Order> getAllOrders() {
-        return repository.findAll();
+    public Flux<Order> getAllOrders(String userId) {
+        return repository.findByCreatedBy(userId);
     }
 
     public Mono<Order> submit(String isbn, int quantity) {
