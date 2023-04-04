@@ -1,10 +1,7 @@
 package com.polarbookshop.order.domain;
 
 import com.polarbookshop.order.book.Book;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.annotation.Version;
+import org.springframework.data.annotation.*;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
@@ -24,10 +21,16 @@ public record Order(
         @LastModifiedDate
         LocalDateTime lastModifiedDate,
         @Version
-        int version
+        int version,
+
+        @CreatedBy
+        String createdBy,
+
+        @LastModifiedBy
+        String lastModifiedBy
         ) {
     public static Order of(String bookIsbn, String bookName, double bookPrice, int quantity, OrderStatus status) {
-        return new Order(null, bookIsbn, bookName, bookPrice, quantity, status, null, null, 0);
+        return new Order(null, bookIsbn, bookName, bookPrice, quantity, status, null, null, 0, null, null);
     }
 
     public static Order of(Book book, int quantity, OrderStatus status) {

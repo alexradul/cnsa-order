@@ -56,7 +56,9 @@ public class OrderService {
                 OrderStatus.DISPATCHED,
                 existingOrder.createdDate(),
                 existingOrder.lastModifiedDate(),
-                existingOrder.version()
+                existingOrder.version(),
+                existingOrder.createdBy(),
+                existingOrder.lastModifiedBy()
         );
     }
 
