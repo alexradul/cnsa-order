@@ -22,6 +22,7 @@ ext {
     set('testcontainersVersion', "1.17.6")
     set('springCloudVersion', "2021.0.6")
     set('testKeycloakVersion', "2.3.0")
+    set('otelVersion', "1.19.2")
 }
 
 dependencies {
@@ -39,6 +40,7 @@ dependencies {
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     runtimeOnly("org.flywaydb:flyway-core")
     runtimeOnly("org.springframework:spring-jdbc")
+    runtimeOnly "io.opentelemetry.javaagent:opentelemetry-javaagent:${otelVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     testImplementation 'org.testcontainers:junit-jupiter'
